@@ -7,7 +7,7 @@ case "$PROCESSOR_ARCHITECTURE" in
 esac
 
 repo=crueter-ci/pkgconf
-: "${PKGCONF_VERSION:?}"
+: "${PKGCONF_VERSION:=2.5.1}"
 artifact="pkgconf-$arch.exe"
 
 curl -sfL "https://github.com/$repo/releases/download/v$PKGCONF_VERSION/$artifact" -o pkgconf.exe

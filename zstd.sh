@@ -7,7 +7,7 @@ case "$PROCESSOR_ARCHITECTURE" in
 esac
 
 repo=crueter-ci/zstd
-: "${ZSTD_VERSION:?}"
+: "${ZSTD_VERSION:=1.5.7}"
 artifact="zstd-$arch.exe"
 
 curl -sfL "https://github.com/$repo/releases/download/v$PKGCONF_VERSION/$artifact" -o zstd.exe

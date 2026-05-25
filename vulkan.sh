@@ -8,7 +8,7 @@ esac
 
 # TODO: use zip?
 repo=crueter-ci/Vulkan
-: "${VULKAN_VERSION:?}"
+: "${VULKAN_VERSION:=1.4.350.0}"
 artifact="vulkan-$arch.tar.gz"
 
 curl -sfLO "https://github.com/$repo/releases/download/v$VULKAN_VERSION/$artifact"
