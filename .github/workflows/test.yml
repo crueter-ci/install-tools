@@ -35,11 +35,11 @@ jobs:
           fi
 
           export PKG_CONFIG_PATH="$FFNVCODEC_DIR/lib/pkgconfig"
-          printf "-- ffnvcodec pkg-config: "
+          printf -- "-- ffnvcodec pkg-config: "
           pkg-config --cflags --libs ffnvcodec
 
           export PKG_CONFIG_PATH="$VULKAN_SDK/lib/pkgconfig"
-          printf "-- vulkan pkg-config: "
+          printf -- "-- vulkan pkg-config: "
           pkg-config --cflags --libs vulkan
 
           echo
