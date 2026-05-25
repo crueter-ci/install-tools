@@ -30,15 +30,17 @@ jobs:
           pkgconf --version
           echo "$VULKAN_SDK"
 
-          if [[ "${{ matrix.os }}" == windows-latest ]]; then
+          if [ "${{ matrix.os }}" = windows-latest ]; then
             nasm --version
           fi
 
           export PKG_CONFIG_PATH="$FFNVCODEC_DIR/lib/pkgconfig"
-          pkg-config --cflags ffnvcodec
+          printf "-- ffnvcodec pkg-config: "
+          pkg-config --cflags --libs ffnvcodec
 
           export PKG_CONFIG_PATH="$VULKAN_SDK/lib/pkgconfig"
-          pkg-config --cflags vulkan
+          printf "-- vulkan pkg-config: "
+          pkg-config --cflags --libs vulkan
 
           echo
           echo "$PATH"
