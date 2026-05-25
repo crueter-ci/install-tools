@@ -1,12 +1,9 @@
 #!/bin/sh -e
 
-echo "$PROCESSOR_ARCHITECTURE"
-
 case "$PROCESSOR_ARCHITECTURE" in
 	AMD64) ;;
 	*) exit 0 ;;
 esac
-
 
 : "${VERSION:=3.01}"
 artifact="nasm-$VERSION-win64.zip"

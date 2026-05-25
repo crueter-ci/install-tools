@@ -14,13 +14,14 @@ jobs:
           - os: windows-11-arm
 
     steps:
-      - name: Install pkgconf, vulkan, zstd
+      - name: Install all tools
         uses: crueter-ci/install-tools@master
         with:
           pkgconf: true
           zstd: true
           vulkan: true
           nasm: true
+          ffnvcodec: true
 
       - name: Check
         shell: bash
@@ -29,6 +30,9 @@ jobs:
           pkgconf --version
           echo "$VULKAN_SDK"
           nasm --version || true
+
+          export PKG_CONFIG_PATH="$FFNVCODEC_DIR"
+          pkg-config --cflags ffnvcodec
 
           echo
           echo "$PATH"

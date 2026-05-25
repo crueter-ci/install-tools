@@ -18,6 +18,11 @@ inputs:
     description: "Install nasm (amd64 only)"
     type: bool
     default: false
+  ffnvcodec:
+    description: "Install FFmpeg's Nvidia Codec SDK headers"
+    type: bool
+    default: false
+
 runs:
   using: "composite"
   steps:
@@ -48,3 +53,10 @@ runs:
       run: |
         cd "${{ github.action_path }}"
         sh -e nasm.sh
+
+    - name: Install ffnvcodec
+      if: inputs.ffnvcodec == 'true'
+      shell: cmd
+      run: |
+        cd "${{ github.action_path }}"
+        sh -e ffnvcodec.sh
