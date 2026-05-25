@@ -37,6 +37,10 @@ jobs:
           export PKG_CONFIG_PATH="$(cygpath -u $FFNVCODEC_DIR)/lib/pkgconfig"
           pkg-config --cflags ffnvcodec
 
+          ls "$VULKAN_SDK/lib"
+          echo
+          ls "$VULKAN_SDK/lib/pkgconfig"
+
           export PKG_CONFIG_PATH="$(cygpath -u $VULKAN_SDK)/lib/pkgconfig"
           pkg-config --cflags vulkan
 
