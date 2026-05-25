@@ -22,12 +22,14 @@ jobs:
           vulkan: true
           nasm: true
           ffnvcodec: true
+          gas-preprocessor: true
 
       - name: Check
         shell: bash
         run: |
           zstd --version
           pkgconf --version
+          gas-preprocessor.pl -help
           echo "$VULKAN_SDK"
 
           if [ "${{ matrix.os }}" = windows-latest ]; then
