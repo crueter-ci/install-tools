@@ -20,6 +20,7 @@ jobs:
           pkgconf: true
           zstd: true
           vulkan: true
+          nasm: true
 
       - name: Check
         shell: bash
@@ -27,6 +28,7 @@ jobs:
           zstd --version
           pkgconf --version
           echo "$VULKAN_SDK"
+          nasm --version || true
 
           echo
           echo "$PATH"
