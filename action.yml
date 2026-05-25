@@ -21,14 +21,23 @@ runs:
     - name: Install pkgconf
       if: inputs.pkgconf == 'true'
       shell: bash
-      run: bash "${{ github.action_path }}/pkgconf.sh"
+      run: |
+        echo "$PWD"
+        ls
+        bash "${{ github.action_path }}/pkgconf.sh"
 
     - name: Install zstd
       if: inputs.zstd == 'true'
       shell: bash
-      run: bash "${{ github.action_path }}/zstd.sh"
+      run: |
+        echo "$PWD"
+        ls
+        bash "${{ github.action_path }}/zstd.sh"
 
     - name: Install vulkan
       if: inputs.vulkan == 'true'
       shell: bash
-      run: bash "${{ github.action_path }}/vulkan.sh"
+      run: |
+        echo "$PWD"
+        ls
+        bash "${{ github.action_path }}/vulkan.sh"
