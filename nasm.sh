@@ -1,8 +1,7 @@
 #!/bin/sh -e
 
-case "$PROCESSOR_ARCHITECTURE" in
-	AMD64) ;;
-	*) exit 0 ;;
+case "$(uname -a)" in
+	*ARM64*) exit 0 ;;
 esac
 
 : "${VERSION:=3.01}"

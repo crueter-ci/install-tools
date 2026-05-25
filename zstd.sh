@@ -1,9 +1,8 @@
 #!/bin/sh -e
 
-case "$PROCESSOR_ARCHITECTURE" in
-	AMD64) arch=amd64 ;;
-	ARM64) arch=arm64 ;;
-	*) echo "Unsupported architecture $PROCESSOR_ARCHITECTURE"; exit 1 ;;
+case "$(uname -a)" in
+	*ARM64*) arch=arm64 ;;
+	*) arch=amd64 ;;
 esac
 
 repo=crueter-ci/zstd
