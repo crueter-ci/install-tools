@@ -13,7 +13,7 @@ out="/c/hostedtoolcache/windows/ffnvcodec"
 cd "$dir"
 make PREFIX="$out" install
 cd ..
-rm -rf "$dir"
+rm -rf "$dir" "$artifact"
 
 out_win=$(cygpath -w "$out")
 echo "FFNVCODEC_DIR=$out_win" >> "$GITHUB_ENV"

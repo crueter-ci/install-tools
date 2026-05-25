@@ -17,7 +17,7 @@ out="/c/hostedtoolcache/windows/nasm"
 mkdir -p "$out"
 mv "$dir"/nasm.exe "$out"
 mv "$dir"/ndisasm.exe "$out"
-rm -rf "$dir"
+rm -rf "$dir" "$artifact"
 
 out_win=$(cygpath -w "$out")
 echo "$out_win" >> "$GITHUB_PATH"
