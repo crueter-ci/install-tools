@@ -37,5 +37,8 @@ jobs:
           export PKG_CONFIG_PATH="$FFNVCODEC_DIR/lib/pkgconfig"
           pkg-config --cflags ffnvcodec
 
+          export PKG_CONFIG_PATH="$VULKAN_SDK/lib/pkgconfig"
+          pkg-config --cflags vulkan
+
           echo
           echo "$PATH"
