@@ -23,4 +23,13 @@ jobs:
 
       - name: Check
         shell: bash
-        run: env
+        run: |
+          zstd --version
+          pkgconf --version
+          echo "$VULKAN_SDK"
+
+          echo
+          echo
+          echo
+
+

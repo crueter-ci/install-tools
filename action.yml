@@ -20,24 +20,21 @@ runs:
   steps:
     - name: Install pkgconf
       if: inputs.pkgconf == 'true'
-      shell: bash
+      shell: cmd
       run: |
-        echo "$PWD"
-        ls
-        bash "${{ github.action_path }}/pkgconf.sh"
+        cd "${{ github.action_path }}"
+        sh -e pkgconf.sh
 
     - name: Install zstd
       if: inputs.zstd == 'true'
-      shell: bash
+      shell: cmd
       run: |
-        echo "$PWD"
-        ls
-        bash "${{ github.action_path }}/zstd.sh"
+        cd "${{ github.action_path }}"
+        sh -e zstd.sh
 
     - name: Install vulkan
       if: inputs.vulkan == 'true'
-      shell: bash
+      shell: cmd
       run: |
-        echo "$PWD"
-        ls
-        bash "${{ github.action_path }}/vulkan.sh"
+        cd "${{ github.action_path }}"
+        sh -e vulkan.sh
