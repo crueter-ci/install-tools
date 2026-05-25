@@ -29,7 +29,4 @@ jobs:
           echo "$VULKAN_SDK"
 
           echo
-          echo
-          echo
-
-
+          echo "$PATH"
