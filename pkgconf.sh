@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+case "$PROCESSOR_ARCHITECTURE" in
+	AMD64) arch=amd64 ;;
+	ARM64) arch=arm64 ;;
+	*) echo "Unsupported architecture $PROCESSOR_ARCHITECTURE"; exit 1 ;;
+esac
+
+repo=crueter-ci/pkgconf
+: "${PKGCONF_VERSION:?}"
+artifact="pkgconf-$arch.exe"
+
+curl -sfL "https://github.com/$repo/releases/download/v$PKGCONF_VERSION/$artifact" -o pkgconf.exe
+
+out="/c/hostedtoolcache/windows/pkgconf"
+mkdir -p "$out"
+cp pkgconf.exe "$out"/pkg-config.exe
+mv pkgconf.exe "$out"
+
+out_win=$(cygpath -w "$out")
+echo "$out_win" >> "$GITHUB_PATH"

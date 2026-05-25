@@ -1,0 +1,40 @@
+name: "Install Tools"
+description: "Install various tools, executables, and utilities not normally present in GitHub Actions' Windows runners."
+
+inputs:
+  pkgconf:
+    description: "Install pkgconf (aka pkg-config)"
+    type: bool
+    default: false
+  zstd:
+    description: "Install zstandard (aka zstd)"
+    type: bool
+    default: false
+  vulkan:
+    description: "Install Vulkan Loader + Headers"
+    type: bool
+    default: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install pkgconf
+      if: inputs.pkgconf == 'true'
+      shell: bash
+      run: ${{ github.action_path }}/pkgconf.sh
+      env:
+        VULKAN_VERSION: 1.4.350.0
+
+    - name: Install zstd
+      if: inputs.zstd == 'true'
+      shell: bash
+      run: ${{ github.action_path }}/zstd.sh
+      env:
+        PKGCONF_VERSION: 2.5.1
+
+    - name: Install vulkan
+      if: inputs.vulkan == 'true'
+      shell: bash
+      run: ${{ github.action_path }}/vulkan.sh
+      env:
+        ZSTD_VERSION: 1.5.7

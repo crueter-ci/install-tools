@@ -1,0 +1,26 @@
+name: Test Action
+
+on: [pull_request, push, workflow_dispatch]
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+          - os: windows-11-arm
+
+    steps:
+      - name: Install pkgconf, vulkan, zstd
+        uses: crueter-ci/install-tools@master
+        with:
+          pkgconf: true
+          zstd: true
+          vulkan: true
+
+      - name: Check
+        shell: bash
+        run: env
