@@ -29,9 +29,12 @@ jobs:
           zstd --version
           pkgconf --version
           echo "$VULKAN_SDK"
-          nasm --version || true
 
-          export PKG_CONFIG_PATH="$FFNVCODEC_DIR"
+          if [[ "${{ matrix.os }}" == windows-latest ]]; then
+            nasm --version
+          fi
+
+          export PKG_CONFIG_PATH="$FFNVCODEC_DIR/lib/pkgconfig"
           pkg-config --cflags ffnvcodec
 
           echo
