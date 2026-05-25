@@ -1,5 +1,7 @@
 #!/bin/sh -e
 
+echo "$PROCESSOR_ARCHITECTURE"
+
 case "$PROCESSOR_ARCHITECTURE" in
 	AMD64) ;;
 	*) exit 0 ;;
@@ -15,8 +17,10 @@ curl -sfLO "$url"
 unzip "$artifact"
 
 out="/c/hostedtoolcache/windows/nasm"
+
 mkdir -p "$out"
 mv "$dir"/nasm.exe "$out"
+mv "$dir"/ndisasm.exe "$out"
 rm -rf "$dir"
 
 out_win=$(cygpath -w "$out")
