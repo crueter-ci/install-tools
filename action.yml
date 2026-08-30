@@ -26,6 +26,10 @@ inputs:
     description: "Install FFmpeg's gas-preprocessor"
     type: bool
     default: false
+  make:
+    description: "Install GNU Make"
+    type: bool
+    default: false
 
 runs:
   using: "composite"
@@ -34,7 +38,6 @@ runs:
       if: inputs.pkgconf == 'true'
       shell: cmd
       run: |
-        echo "Installing pkgconf"
         cd "${{ github.action_path }}"
         sh -e pkgconf.sh
 
@@ -42,7 +45,6 @@ runs:
       if: inputs.zstd == 'true'
       shell: cmd
       run: |
-        echo "Installing zstd"
         cd "${{ github.action_path }}"
         sh -e zstd.sh
 
@@ -50,7 +52,6 @@ runs:
       if: inputs.vulkan == 'true'
       shell: cmd
       run: |
-        echo "Installing vulkan"
         cd "${{ github.action_path }}"
         sh -e vulkan.sh
 
@@ -58,7 +59,6 @@ runs:
       if: inputs.nasm == 'true'
       shell: cmd
       run: |
-        echo "Installing nasm"
         cd "${{ github.action_path }}"
         sh -e nasm.sh
 
@@ -66,7 +66,6 @@ runs:
       if: inputs.ffnvcodec == 'true'
       shell: cmd
       run: |
-        echo "Installing ffnvcodec"
         cd "${{ github.action_path }}"
         sh -e ffnvcodec.sh
 
@@ -74,6 +73,11 @@ runs:
       if: inputs.gas-preprocessor == 'true'
       shell: cmd
       run: |
-        echo "Installing gas-preprocessor"
         cd "${{ github.action_path }}"
         sh -e gas.sh
+
+    - name: Install make
+      if: inputs.make == 'true'
+      shell: cmd
+      run: |
+        choco install make
