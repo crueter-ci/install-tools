@@ -85,3 +85,10 @@ runs:
       shell: cmd
       run: |
         choco install make
+
+    - name: Install jom
+      if: inputs.jom == 'true'
+      shell: cmd
+      run: |
+        cd "${{ github.action_path }}"
+        sh -e jom.sh
