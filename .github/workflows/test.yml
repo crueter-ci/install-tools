@@ -23,6 +23,8 @@ jobs:
           nasm: true
           ffnvcodec: true
           gas-preprocessor: true
+          make: true
+          jom: true
 
       - name: Check
         shell: bash
@@ -30,6 +32,8 @@ jobs:
           zstd --version
           pkgconf --version
           gas-preprocessor.pl -help
+          make --version
+          jom -version
           echo "$VULKAN_SDK"
 
           if [ "${{ matrix.os }}" = windows-latest ]; then
@@ -46,3 +50,8 @@ jobs:
 
           echo
           echo "$PATH"
+
+          echo
+          jom -h
+
+          echo
