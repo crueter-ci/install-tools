@@ -9,7 +9,7 @@ repo=crueter-ci/jom
 : "${JOM_VERSION:=1.1.7}"
 artifact="jom-$arch.exe"
 
-curl -sfL "https://github.com/$repo/releases/download/v$JOM_VERSION/$artifact" -o jom.exe
+curl -sfL "https://github.com/$repo/releases/download/$JOM_VERSION/$artifact" -o jom.exe
 
 out="/c/hostedtoolcache/windows/jom"
 mkdir -p "$out"
