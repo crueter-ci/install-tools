@@ -30,6 +30,10 @@ inputs:
     description: "Install GNU Make"
     type: bool
     default: false
+  jom:
+    description: "Install jom, Qt's parallelized nmake clone"
+    type: bool
+    default: false
 
 runs:
   using: "composite"
